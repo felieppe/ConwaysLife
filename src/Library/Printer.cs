@@ -4,12 +4,12 @@ using Library;
 namespace ConwaysLife;
 public class Printer
 {
-    private bool[,] B;
+    private Board Board;
     private int Width;
     private int Height;
 
-    public Printer(bool[,] b, int width, int height) {
-        this.B = b;
+    public Printer(Board board, int width, int height) {
+        this.Board = board;
         this.Width = width;
         this.Height = height;
     }
@@ -23,7 +23,7 @@ public class Printer
             {
                 for (int x = 0; x < Width; x++)
                 {
-                    if(B[x,y])
+                    if(Board.GetBoard()[x,y])
                     {
                         s.Append("|X|");
                     }
@@ -36,14 +36,11 @@ public class Printer
             }
             Console.WriteLine(s.ToString());
             
-            SetBoard(new GameLogic(B).Game());
+            Board.SetBoard(new GameLogic(Board.GetBoard()).Game());
             Thread.Sleep(300);
         }
     }
 
-    public void SetBoard(bool[,] b) {
-        this.B = b;
-    }
     public void SetWidth(int width) {
         this.Width = width;
     }
@@ -51,9 +48,6 @@ public class Printer
         this.Height = height;
     }
 
-    public bool[,] GetBoard() {
-        return this.B;
-    }
     public int GetWidth() {
         return this.Width;
     }
