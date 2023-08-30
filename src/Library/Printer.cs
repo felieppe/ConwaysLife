@@ -1,7 +1,6 @@
 ﻿using System.Text;
 
-namespace Library;
-
+namespace ConwaysLife;
 public class Printer
 {
     private bool[,] B;

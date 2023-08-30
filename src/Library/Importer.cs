@@ -1,4 +1,4 @@
-namespace Library;
+namespace ConwaysLife;
 
 public class Importer {
     private string Url;
