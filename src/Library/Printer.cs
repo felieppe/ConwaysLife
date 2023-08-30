@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using Library;
 
 namespace ConwaysLife;
 public class Printer
@@ -34,14 +35,13 @@ public class Printer
                 s.Append("\n");
             }
             Console.WriteLine(s.ToString());
-            //=================================================
-            //Invocar método para calcular siguiente generación
-            //=================================================
+            
+            SetBoard(new GameLogic(B).Game());
             Thread.Sleep(300);
         }
     }
 
-    public void SetB(bool[,] b) {
+    public void SetBoard(bool[,] b) {
         this.B = b;
     }
     public void SetWidth(int width) {
@@ -51,7 +51,7 @@ public class Printer
         this.Height = height;
     }
 
-    public bool[,] GetB() {
+    public bool[,] GetBoard() {
         return this.B;
     }
     public int GetWidth() {
