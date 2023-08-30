@@ -1,24 +1,15 @@
-﻿namespace ConwaysLife {
+﻿using Library;
+
+namespace ConwaysLife {
     class Program {
         static void Main(string[] args) {
-            /*
-            
-                Needed classes:
-                    - Importer
-                        - LoadBoard()
-                    - Board
-                    - GameLogic
-                        - Game()
-                    - Printer
-                        - Print()
+            string boardPath = "../../assets/board.txt";
+            Importer importer = new Importer(boardPath);
 
-                Cosas para hacer:
-                    - Agregar validacion de datos en los SETs.
-            
-            */
+            Board board = new Board(importer.LoadBoard());
+            Printer printer = new Printer(board, 20, 20);
 
-            Importer imp = new Importer("");
-            Printer printer = new Printer(imp.LoadBoard(), 10, 10);
+            printer.Print();
         }
     }
 }
