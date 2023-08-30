@@ -17,7 +17,9 @@ public class Printer
     public void Print() {
         while (true)
         {
-            Console.Clear();
+            new Screen().ShowHeader();
+            Console.Write("\n");
+            
             StringBuilder s = new StringBuilder();
             for (int y = 0; y < Height; y++)
             {

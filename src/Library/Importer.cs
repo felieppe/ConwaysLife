@@ -2,6 +2,7 @@ namespace ConwaysLife;
 
 public class Importer {
     private string Url;
+    private int FileLines = 0;
 
     public Importer(string url) {
         this.Url = url;
@@ -10,6 +11,9 @@ public class Importer {
     public bool[,] LoadBoard() {
         string content = File.ReadAllText(Url);
         string[] contentLines = content.Split('\n');
+
+        this.FileLines = contentLines.Length;
+
         bool[,] board = new bool[contentLines.Length, contentLines[0].Length];
         for (int y = 0; y < contentLines.Length;y++)
         {
@@ -31,5 +35,8 @@ public class Importer {
 
     public string GetUrl() {
         return this.Url;
+    }
+    public int GetFileLines() {
+        return this.FileLines;
     }
 }
